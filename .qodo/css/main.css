@@ -1,6 +1,11 @@
+html {
+    min-height: 100%;
+}
+
 body {
+    height:100%;
     font-family: fantasy;
-    background-color: #853e53;
+    background-image: linear-gradient(#833b51, #e77597);
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -9,7 +14,7 @@ body {
 
 h1 {
     font-size: 80px;
-    margin-top: 50px;
+    margin-top: 15%;
     -webkit-text-stroke: 2px #a34c1a;
 }
 
@@ -36,8 +41,4 @@ h1 {
     color: white;
     background: #a34c1a;
     cursor: pointer;
-}
-
-.timer__btn--start {
-
 }
