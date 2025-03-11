@@ -11,6 +11,7 @@ export default class Timer {
 
         this.interval = null;
         this.remainingSeconds = 0;
+        this.audio = new Audio('./assets/jingle_new.mp3');
 
 
         this.el.control.addEventListener('click', () => {
@@ -60,6 +61,8 @@ export default class Timer {
 
             if(this.remainingSeconds === 0) {
                 this.stop();
+                //this.audio.play();
+                this.playJingle();
             }
         }, 1000);
 
@@ -70,6 +73,18 @@ export default class Timer {
         clearInterval(this.interval);
         this.interval = null;
         this.updateInterfaceControls();
+    }
+
+    playJingle() {
+
+        this.audio.volume = 0.1;
+        this.audio.play();
+        for(let i = 1; i <= 10; i++) {
+            setTimeout(() => {
+                this.audio.volume = 0.1 * i;
+                this.audio.play();
+            }, 6500 * i);
+        }
     }
 
     static getHTML() {
