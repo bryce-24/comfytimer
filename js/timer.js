@@ -13,7 +13,6 @@ export default class Timer {
         this.remainingSeconds = 0;
         this.audio = new Audio('./assets/jingle_new.mp3');
 
-
         this.el.control.addEventListener('click', () => {
             if(this.interval === null) {
                 this.start();
@@ -38,6 +37,8 @@ export default class Timer {
 
         this.el.minutes.textContent = minutes.toString().padStart(2, '0');
         this.el.seconds.textContent = seconds.toString().padStart(2, '0');
+
+        document.title = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
 
     updateInterfaceControls() {
@@ -80,10 +81,12 @@ export default class Timer {
         this.audio.volume = 0.1;
         this.audio.play();
         for(let i = 1; i <= 10; i++) {
-            setTimeout(() => {
-                this.audio.volume = 0.1 * i;
-                this.audio.play();
-            }, 6500 * i);
+            if(this.remainingSeconds === 0) {
+                setTimeout(() => {
+                    this.audio.volume = 0.1 * i;
+                    this.audio.play();
+                }, 6500 * i);
+            }
         }
     }
 
