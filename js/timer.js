@@ -1,7 +1,7 @@
 export default class Timer {
     constructor(root) {
         root.innerHTML = Timer.getHTML();
-
+        //define timer parts
         this.el = {
             minutes: root.querySelector('.timer__part--minutes'),
             seconds: root.querySelector('.timer__part--seconds'),
@@ -13,6 +13,7 @@ export default class Timer {
         this.remainingSeconds = 0;
         this.audio = new Audio('./assets/jingle_new.mp3');
 
+        //start/stop timer
         this.el.control.addEventListener('click', () => {
             if(this.interval === null) {
                 this.start();
@@ -21,6 +22,7 @@ export default class Timer {
             }
         });
 
+        //input prompt for minutes
         this.el.reset.addEventListener('click', () => {
             const inputMinutes = prompt('Enter the number of minutes');
             if(inputMinutes < 60) {
@@ -31,6 +33,7 @@ export default class Timer {
         });
     }
     
+    //update timer once per second
     updateInterfaceTime() {
         const minutes = Math.floor(this.remainingSeconds / 60);
         const seconds = this.remainingSeconds % 60;
@@ -41,6 +44,7 @@ export default class Timer {
         document.title = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
 
+    //update button icons
     updateInterfaceControls() {
         if(this.interval == null) {
             this.el.control.innerHTML = '<span class="material-icons">play_arrow</span>';
@@ -53,6 +57,7 @@ export default class Timer {
         }
     }
 
+    //start timer
     start() {
         if(this.remainingSeconds === 0) return;
 
@@ -70,12 +75,14 @@ export default class Timer {
         this.updateInterfaceControls();
     }
 
+    //stop timer
     stop() {
         clearInterval(this.interval);
         this.interval = null;
         this.updateInterfaceControls();
     }
 
+    //play jingle at gradually increasing volume
     playJingle() {
 
         this.audio.volume = 0.1;
@@ -90,6 +97,7 @@ export default class Timer {
         }
     }
 
+    //basic HTML
     static getHTML() {
         return `
             <span class="timer__part timer__part--minutes">00</span>
