@@ -3,7 +3,7 @@ Markdown
 # Comfy Timer
 
 
-Comfy Timer is a web application designed to provide a gentle wake-up experience. When the timer reaches the allotted time, the alarm gradually increases in volume, ensuring a smooth and comfortable transition from rest to activity.
+This project is a web application designed to provide a gentle wake-up experience. When the timer reaches the allotted time, the alarm gradually increases in volume, ensuring a smooth and comfortable transition from rest to activity.
 
 
 ## Features
