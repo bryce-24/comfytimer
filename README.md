@@ -35,3 +35,14 @@ To run this project locally, follow these steps:
    git clone https://github.com/yourusername/comfy-timer.git
 
    cd comfy-timer
+
+
+2. **Open the application:**:
+    - Open the 'index.html' file in your browser.
+
+
+## Usage
+
+1. Set the desired time
+2. Start the timer
+3. When the time is up, the alarm will quietly start, then gradually increase in volume.
